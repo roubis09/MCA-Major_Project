@@ -17,7 +17,7 @@ import com.safewebguard.doctools.common.vo.DigitalSignatureRequestVO;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j         // For logger
+@Slf4j
 @Service
 public class DigitalSignatureService {
 	public byte[] signPdf(InputStream fileInputStream, InputStream certInputStream,
@@ -44,25 +44,14 @@ public class DigitalSignatureService {
 			float pageWidth = reader.getPageSize(1).getWidth();
 			System.out.println("Page height: "+pageWidth);
 			float adjustedY = pageHeight - signatureDetails.getSignatureY();
-			/*signatureAppearance
-					.setVisibleSignature(
-							new Rectangle(signatureDetails.getSignatureX(), signatureDetails.getSignatureY(),
-									signatureDetails.getSignatureX() + signatureDetails.getSignatureWidth(),
-									signatureDetails.getSignatureY() + signatureDetails.getSignatureHeight()),
-							1, "signature");*/
+			
 			signatureAppearance
 			.setVisibleSignature(
 					new Rectangle(signatureDetails.getSignatureX(), signatureDetails.getSignatureY()-signatureDetails.getSignatureHeight(),
 							signatureDetails.getSignatureX() + signatureDetails.getSignatureWidth(),
 							signatureDetails.getSignatureY()),
 					signatureDetails.getPageNo(), "signature");
-			/*signatureAppearance
-			.setVisibleSignature(
-					new Rectangle(signatureDetails.getSignatureX(), adjustedY,
-							signatureDetails.getSignatureX() + signatureDetails.getSignatureWidth(),
-							adjustedY + signatureDetails.getSignatureHeight()),
-					1, "signature");*/
-			//signatureAppearance.setCrypto(privateKey, chain, null, PdfSignatureAppearance.SELF_SIGNED);
+			
 			signatureAppearance.setCrypto(privateKey, chain, null, PdfSignatureAppearance.WINCER_SIGNED);
 			
 			// Finalize the PDF
@@ -73,7 +62,6 @@ public class DigitalSignatureService {
 			outputStream.close();
 			
 			log.info("Digital signature done successfully");
-			// System.out.println(signedFile);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
