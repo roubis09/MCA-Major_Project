@@ -1,0 +1,126 @@
+<app-doctools-navbar></app-doctools-navbar>
+<div class="container-fluid digitalsignature">
+  <div *ngIf="!pdfSrc" class="upload">
+    <button class="uploadButton" (click)="onFileUploadClick()">
+      Upload PDF
+    </button>
+    <input
+      #fileInput
+      type="file"
+      accept="application/pdf"
+      (change)="onFileSelected($event)"
+      style="display: none"
+    />
+  </div>
+  <div class="row">
+    <div class="col-md-1 hidden-xs-down hidden-sm-up">
+      <!-- Content for the first column - Hidden on XS and SM screens -->
+    </div>
+    <div
+      class="col-md-8 d-flex justify-content-center p-1 middle"
+      style="margin-top: 2%"
+    >
+      <pdf-viewer
+        *ngIf="pdfSrc"
+        [src]="pdfSrc"
+        [page]="1"
+        [render-text]="false"
+        [original-size]="false"
+        style="display: block; width: 100%; height: 600px"
+        (mousedown)="onMouseDown($event)"
+        (mouseup)="onMouseUp($event)"
+        [ngClass]="{ 'crosshair-cursor': isDrawing }"
+      ></pdf-viewer>
+    </div>
+    <div
+      class="col-md-2 d-flex justify-content-center p-1"
+      style="margin-top: 2%"
+      *ngIf="pdfSrc"
+    >
+      <div class="form-container">
+        <form (ngSubmit)="signPdf()" [formGroup]="coordinatesForm">
+          <div class="form-group">
+            <label for="x">Starting Point (X):</label>
+            <input
+              id="x"
+              formControlName="x"
+              type="number"
+              placeholder="Enter X"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="y">Starting Point (Y):</label>
+            <input
+              id="y"
+              formControlName="y"
+              type="number"
+              placeholder="Enter Y"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="height">Height:</label>
+            <input
+              id="height"
+              formControlName="height"
+              type="number"
+              placeholder="Enter Height"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="width">Width:</label>
+            <input
+              id="width"
+              formControlName="width"
+              type="number"
+              placeholder="Enter Width"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="pageNo">Page No:</label>
+            <input
+              id="pageNo"
+              formControlName="pageNo"
+              type="number"
+              placeholder="Enter Page No"
+            />
+            <div *ngIf="coordinatesForm.get('pageNo')?.hasError('max')">
+              Page number cannot exceed {{ noOfPages }}.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fileUpload">Upload Certificate (PFX):</label>
+            <input
+              id="fileUpload"
+              (change)="onCertSelected($event)"
+              type="file"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              id="password"
+              formControlName="password"
+              type="password"
+              placeholder="Enter Password"
+            />
+          </div>
+
+          <button type="submit" [disabled]="coordinatesForm.invalid">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-1 hidden-xs-down hidden-sm-up">
+      <!-- Content for the third column - Hidden on XS and SM screens -->
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

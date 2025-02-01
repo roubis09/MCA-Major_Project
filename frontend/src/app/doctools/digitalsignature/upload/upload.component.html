@@ -1,0 +1,10 @@
+<!--This component was created only for testing purpose. Later need to delete this component and also uninstall ng2-pdf-viewer-->
+<pdf-viewer
+  [src]="'http://localhost:4200/assets/aws.pdf'"
+  [page]="1"
+  (click)="onPdfClick($event)"
+  [render-text]="true"
+  [original-size]="false"
+  style="display: block; width: 100%; height: 600px"
+>
+</pdf-viewer>

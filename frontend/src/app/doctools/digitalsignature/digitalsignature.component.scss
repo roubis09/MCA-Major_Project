@@ -1,0 +1,154 @@
+/* Add this to your component's SCSS */
+.crosshair-cursor {
+  cursor: crosshair !important; /* Ensure it overrides other cursor styles */
+}
+.digitalsignature {
+  justify-content: center;
+}
+
+.upload {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 80vh; /* Full viewport height */
+  width: 100%; /* Full width */
+  position: relative; /* Positioning to allow centering */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+}
+/* digitalsignature.component.scss */
+
+/* Set up the container for the PDF viewer */
+.pdf-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+/* Style the button */
+.uploadButton {
+  background-color: #382854;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: #2e1e3c;
+}
+
+/* Style the PDF viewer */
+pdf-viewer {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border: 2px solid #382854;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+/* Styles for crosshair cursor when drawing */
+.crosshair-cursor {
+  cursor: crosshair !important;
+}
+
+/* Make the layout responsive */
+@media (max-width: 768px) {
+  .pdf-container {
+    padding: 10px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  pdf-viewer {
+    max-width: 100%;
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  pdf-viewer {
+    height: 300px;
+  }
+}
+
+// Form
+.form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f3f4f6;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    padding: 10px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,178 @@
+/* Navbar Container */
+.navbar {
+  background-color: #382854; /* Deep Purple Background */
+  padding: 0.5rem 2rem; /* Reduced padding to decrease height */
+  border-bottom: 3px solid #e056fd; /* Bright Pink Bottom Border */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  font-family: "Roboto", sans-serif;
+  position: relative;
+}
+
+/* Navbar Brand */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #dfe6e9; /* Light Grey Text */
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  //display: inline-block;
+}
+
+.navbar-brand:hover {
+  color: #e056fd; /* Bright Pink on hover */
+}
+
+.navbar-brand img {
+  margin-right: 10px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.navbar-brand:hover img {
+  transform: rotate(360deg) scale(1.1); /* Spin and enlarge on hover */
+  opacity: 0.8;
+}
+
+/* Toggler Button */
+.navbar-toggler {
+  border: 2px solid #e056fd; /* Bright Pink Border */
+  border-radius: 12px;
+  padding: 6px 12px; /* Reduced padding for smaller button */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  background-color: #e056fd; /* Bright Pink on hover */
+  border-color: #dfe6e9; /* Light Grey Border on hover */
+}
+
+.navbar-toggler-icon {
+  filter: invert(1); /* White Hamburger Icon */
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+  color: #dfe6e9 !important; /* Force White Text for links */
+  font-size: 1.1rem;
+  font-family: "Poppins", sans-serif;
+  margin-left: 1rem;
+  position: relative;
+  overflow: hidden;
+  padding: 8px 15px; /* Reduced padding to decrease link height */
+  transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.navbar-nav .nav-link:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #e056fd; /* Bright Pink Underline */
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+.navbar-nav .nav-link:hover:before {
+  width: 100%;
+  left: 0;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #e056fd; /* Bright Pink on hover */
+  background-color: rgba(255, 255, 255, 0.1); /* Light Background on hover */
+  border-radius: 5px;
+}
+
+.navbar-nav .nav-link.active {
+  color: #dfe6e9 !important; /* Force White Text for active link */
+  background-color: rgba(
+    108,
+    92,
+    231,
+    0.2
+  ); /* Light Purple Background for active link */
+  border-radius: 5px;
+}
+
+/* Right Aligned Links (Login) */
+.nav-custom ul {
+  list-style-type: none;
+  margin-right: 20px;
+}
+
+.nav-custom ul li a {
+  color: #dfe6e9; /* White Text */
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  padding: 8px 18px; /* Reduced padding for smaller button */
+  border-radius: 25px;
+  background: linear-gradient(
+    to right,
+    #6c5ce7,
+    #8e44ad
+  ); /* Gradient Background */
+  transition: background-color 0.4s ease, transform 0.4s ease;
+}
+
+.nav-custom ul li a:hover {
+  background: linear-gradient(to right, #ff6b81, #e056fd); /* Hover Gradient */
+  transform: translateY(-3px); /* Slight lift on hover */
+}
+
+.custom-icon {
+  margin-right: 8px;
+  transition: transform 0.4s ease;
+}
+
+.nav-custom ul li a:hover .custom-icon {
+  transform: rotate(-15deg); /* Tilt icon on hover */
+}
+
+mat-icon {
+  font-size: 35px;
+  color: white;
+  transition: transform 0.3s ease;
+  width: 35px;
+  height: 35px;
+  padding-top: 5px;
+}
+
+mat-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Center Login Button for Login View */
+@media (max-width: 992px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .nav-custom {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav-custom-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nav-custom ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .navbar-brand {
+    margin-left: -25px; /* adjust the margin to remove the space */
+  }
+  .navbar-toggler {
+    border-radius: 10px;
+    padding: 5px 10px; /* Reduced padding for smaller button */
+    margin-right: -10px;
+  }
+}

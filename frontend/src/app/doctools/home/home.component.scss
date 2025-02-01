@@ -1,0 +1,47 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 90vh;
+  background-color: #f9f9f9;
+  padding-top: 50px; /* Adjust this value to move the card up or down */
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+.clickable-card {
+  width: 90%;
+  max-width: 320px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-image {
+  height: 70px;
+  width: 70px;
+  padding: 10px;
+}
+
+.clickable-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+  background-color: rgba(0, 123, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    padding-top: 20px;
+  }
+
+  .clickable-card {
+    width: 100%;
+    max-width: 280px;
+  }
+}
